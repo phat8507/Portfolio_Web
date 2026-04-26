@@ -1,55 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" >
-
-    <defs>
-      <linearGradient id="appBg" x1="120" y1="94" x2="904" y2="930">
-        <stop offset="0" stop-color="#123F8C"/><stop offset="1" stop-color="#061B33"/>
-      </linearGradient>
-      <filter id="cardShadow" x="0" y="0" width="1024" height="1024"><feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#071B33" flood-opacity=".22"/></filter>
-    </defs>
-    <rect x="92" y="92" width="840" height="840" rx="130" fill="#FBFCFE" filter="url(#cardShadow)"/>
-    <g transform="translate(250 250) scale(1.52)">
-      
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2000" viewBox="0 0 2000 2000" >
+<rect width="2000" height="2000" fill="#F7F9FC"/><g transform="translate(250 230) scale(4.3)">
   
   <defs>
-    <linearGradient id="applight-top" x1="46" y1="28" x2="314" y2="270" gradientUnits="userSpaceOnUse">
+    <linearGradient id="logolight-top" x1="46" y1="28" x2="314" y2="270" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#07182F"/>
       <stop offset=".38" stop-color="#0B2A62"/>
       <stop offset="1" stop-color="#1647A2"/>
     </linearGradient>
-    <linearGradient id="applight-dark" x1="64" y1="106" x2="194" y2="329" gradientUnits="userSpaceOnUse">
+    <linearGradient id="logolight-dark" x1="64" y1="106" x2="194" y2="329" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#09264C"/>
       <stop offset=".55" stop-color="#061B33"/>
       <stop offset="1" stop-color="#020B16"/>
     </linearGradient>
-    <linearGradient id="applight-cyan" x1="145" y1="185" x2="192" y2="333" gradientUnits="userSpaceOnUse">
+    <linearGradient id="logolight-cyan" x1="145" y1="185" x2="192" y2="333" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#28D7F7"/>
       <stop offset=".54" stop-color="#149CDA"/>
       <stop offset="1" stop-color="#0E3D90"/>
     </linearGradient>
-    <linearGradient id="applight-edge" x1="230" y1="50" x2="327" y2="247" gradientUnits="userSpaceOnUse">
+    <linearGradient id="logolight-edge" x1="230" y1="50" x2="327" y2="247" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#1C55B6"/>
       <stop offset="1" stop-color="#102B75"/>
     </linearGradient>
-    <filter id="applight-shadow" x="-16%" y="-14%" width="140%" height="142%">
+    <filter id="logolight-shadow" x="-16%" y="-14%" width="140%" height="142%">
       <feDropShadow dx="0" dy="14" stdDeviation="11" flood-color="#011025" flood-opacity=".28"/>
       <feDropShadow dx="-8" dy="7" stdDeviation="5" flood-color="#041328" flood-opacity=".18"/>
     </filter>
-    <filter id="applight-soft" x="-24%" y="-24%" width="148%" height="148%">
+    <filter id="logolight-soft" x="-24%" y="-24%" width="148%" height="148%">
       <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#071B33" flood-opacity=".20"/>
     </filter>
-    <clipPath id="applight-clip">
+    <clipPath id="logolight-clip">
       <path d="M55 40h153c67 0 116 47 116 109 0 53-31 91-83 113l-16 7v-58l12-7c27-16 40-34 40-57 0-36-28-61-71-61H93L55 40Z"/>
       <path d="M67 180 202 98v52l-91 56v102l-44 29V180Z"/>
       <path d="M146 216 187 191v141l-41-26v-90Z"/>
     </clipPath>
   </defs>
-  <g filter="url(#applight-shadow)">
-    <path d="M55 40h153c67 0 116 47 116 109 0 53-31 91-83 113l-16 7v-58l12-7c27-16 40-34 40-57 0-36-28-61-71-61H93L55 40Z" fill="url(#applight-top)"/>
-    <path d="M225 211c35-18 52-39 52-65 0-36-28-60-71-60H93L55 40h153c67 0 116 47 116 109 0 53-31 91-83 113l-16 7Z" fill="url(#applight-edge)" opacity="0.95"/>
-    <path d="M67 180 202 98v52l-91 56v102l-44 29V180Z" fill="url(#applight-dark)"/>
+  <g filter="url(#logolight-shadow)">
+    <path d="M55 40h153c67 0 116 47 116 109 0 53-31 91-83 113l-16 7v-58l12-7c27-16 40-34 40-57 0-36-28-61-71-61H93L55 40Z" fill="url(#logolight-top)"/>
+    <path d="M225 211c35-18 52-39 52-65 0-36-28-60-71-60H93L55 40h153c67 0 116 47 116 109 0 53-31 91-83 113l-16 7Z" fill="url(#logolight-edge)" opacity="0.95"/>
+    <path d="M67 180 202 98v52l-91 56v102l-44 29V180Z" fill="url(#logolight-dark)"/>
     <path d="M111 206 202 150v-52L67 180Z" fill="#0A315E" opacity="0.88"/>
-    <path d="M146 216 187 191v141l-41-26v-90Z" fill="url(#applight-cyan)"/>
+    <path d="M146 216 187 191v141l-41-26v-90Z" fill="url(#logolight-cyan)"/>
     <path d="M152 214 187 193v139l-35-23Z" fill="#18C6F4" opacity=".22"/>
-  </g>
-    </g>
+  </g></g>
 </svg>
