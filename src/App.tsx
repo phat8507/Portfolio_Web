@@ -18,7 +18,9 @@ import { AdminPage } from './components/admin/AdminPage';
 function App() {
   const [commandOpen, setCommandOpen] = useState(false);
   const [preloaderDone, setPreloaderDone] = useState(false);
-  const isAdminPage = window.location.pathname === '/admin';
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const routePath = window.location.pathname.replace(basePath, '') || '/';
+  const isAdminPage = routePath === '/admin';
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
