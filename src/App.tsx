@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/Hero';
 import { ImpactSnapshot } from './components/sections/ImpactSnapshot';
@@ -19,6 +20,7 @@ import { AdminPage } from './components/admin/AdminPage';
 function App() {
   const [commandOpen, setCommandOpen] = useState(false);
   const [preloaderDone, setPreloaderDone] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
   const routePath = window.location.pathname.replace(basePath, '') || '/';
   const isAdminPage = routePath === '/admin';
@@ -48,7 +50,7 @@ function App() {
       )}
 
       {/* ── Global NeuralBackground — fixed, behind all content ── */}
-      <div className="fixed inset-0 -z-10 pointer-events-none bg-[#F7F9FC]">
+      <div className="motion-background fixed inset-0 -z-10 pointer-events-none bg-[#F7F9FC]">
         <NeuralBackground
           className="w-full h-full opacity-[0.62]"
           color="rgba(80, 145, 255, 0.36)"
@@ -66,7 +68,11 @@ function App() {
           <ScrollProgress />
           <Navbar onOpenCommand={() => setCommandOpen(true)} />
 
-          <main>
+          <motion.main
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          >
             <Hero />
             <ImpactSnapshot />
             <About />
@@ -75,7 +81,7 @@ function App() {
             <Skills />
             <Education />
             <Contact />
-          </main>
+          </motion.main>
 
           <BackToTop />
           <CommandMenu isOpen={commandOpen} onClose={() => setCommandOpen(false)} />

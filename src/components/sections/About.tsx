@@ -1,7 +1,18 @@
+import { motion, useReducedMotion } from "framer-motion";
 import { profileData } from "../../data/profile";
+import {
+  createBlurFadeUpVariants,
+  createStaggerContainerVariants,
+  createStaggerItemVariants,
+  viewportReveal,
+} from "../motion/variants";
 
 export function About() {
   const { about } = profileData;
+  const shouldReduceMotion = Boolean(useReducedMotion());
+  const reveal = createBlurFadeUpVariants(shouldReduceMotion);
+  const staggerContainer = createStaggerContainerVariants(shouldReduceMotion, 0.08);
+  const staggerItem = createStaggerItemVariants(shouldReduceMotion);
 
   const renderFactValue = (row: (typeof about.snapshot)[number]) => {
     if (row.key !== "English") {
@@ -20,7 +31,14 @@ export function About() {
   };
 
   return (
-    <section id="about" className="about-section py-[clamp(3.5rem,8vh,5.5rem)] border-t border-border">
+    <motion.section
+      id="about"
+      className="about-section py-[clamp(3.5rem,8vh,5.5rem)] border-t border-border"
+      variants={reveal}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportReveal}
+    >
       <div className="section-container">
         <div className="mb-12">
           <div className="flex flex-col gap-[6px] mb-4">
@@ -34,8 +52,14 @@ export function About() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(320px,390px)_1fr] gap-8 lg:gap-12 items-start">
-          <div className="about-facts-card bg-white/75 border border-border rounded-[14px] overflow-hidden shadow-[0_18px_44px_rgba(15,42,74,0.055)] backdrop-blur-sm">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-[minmax(320px,390px)_1fr] gap-8 lg:gap-12 items-start"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportReveal}
+        >
+          <motion.div className="about-facts-card bg-white/75 border border-border rounded-[14px] overflow-hidden shadow-[0_18px_44px_rgba(15,42,74,0.055)] backdrop-blur-sm" variants={staggerItem}>
             {about.snapshot.map((row, idx) => (
               <div 
                 key={row.key} 
@@ -51,9 +75,9 @@ export function About() {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
 
-          <article className="about-story about-story-card">
+          <motion.article className="about-story about-story-card" variants={staggerItem}>
             <span className="about-story-accent" aria-hidden="true" />
 
             <div className="about-story-copy">
@@ -75,9 +99,9 @@ export function About() {
                 </span>
               ))}
             </div>
-          </article>
-        </div>
+          </motion.article>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

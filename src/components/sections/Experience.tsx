@@ -1,6 +1,13 @@
 import { GraduationCap, Users, ClipboardList, Calendar } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { experienceData } from "../../data/experience";
 import { SignInCardBeamEffect } from "../effects/SignInCardBeamEffect";
+import {
+  createBlurFadeUpVariants,
+  createStaggerContainerVariants,
+  createStaggerItemVariants,
+  viewportReveal,
+} from "../motion/variants";
 
 const iconMap = [
   <GraduationCap size={16} className="text-[#2563EB]" />,
@@ -9,8 +16,20 @@ const iconMap = [
 ];
 
 export function Experience() {
+  const shouldReduceMotion = Boolean(useReducedMotion());
+  const reveal = createBlurFadeUpVariants(shouldReduceMotion);
+  const staggerContainer = createStaggerContainerVariants(shouldReduceMotion, 0.1);
+  const staggerItem = createStaggerItemVariants(shouldReduceMotion);
+
   return (
-    <section id="experience" className="py-[clamp(2.8rem,6.4vh,4.4rem)] border-t border-[#D8E1EC] relative z-10">
+    <motion.section
+      id="experience"
+      className="py-[clamp(2.8rem,6.4vh,4.4rem)] border-t border-[#D8E1EC] relative z-10"
+      variants={reveal}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportReveal}
+    >
       <div className="section-container">
         
         {/* ── Header ─────────────────────────────── */}
@@ -32,27 +51,45 @@ export function Experience() {
           {/* ── Timeline Rail (Desktop only) ───────── */}
           <div className="hidden md:flex flex-col items-center mr-6 relative pt-3 pb-3">
             {/* The vertical line */}
-            <div className="absolute top-0 bottom-0 w-[1px] bg-[#D8E1EC] left-1/2 -translate-x-1/2" />
+            <motion.div
+              className="absolute top-0 bottom-0 w-[1px] bg-[#D8E1EC] left-1/2 -translate-x-1/2 origin-top"
+              initial={shouldReduceMotion ? false : { scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={viewportReveal}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.75, ease: [0.22, 1, 0.36, 1] }}
+            />
             
             {/* Markers */}
-            <div className="flex flex-col gap-6 h-full">
+            <motion.div
+              className="flex flex-col gap-6 h-full"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportReveal}
+            >
               {experienceData.map((_, i) => (
-                <div key={i} className="relative z-10 w-10 h-10 rounded-full bg-white border border-[#D8E1EC] flex items-center justify-center shadow-[0_2px_8px_rgba(15,42,74,0.04)] mb-auto last:mb-0">
+                <motion.div key={i} variants={staggerItem} className="relative z-10 w-10 h-10 rounded-full bg-white border border-[#D8E1EC] flex items-center justify-center shadow-[0_2px_8px_rgba(15,42,74,0.04)] mb-auto last:mb-0">
                   {iconMap[i] || <div className="w-2.5 h-2.5 rounded-full bg-[#2563EB]" />}
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* ── Cards Stack ──────────────────────── */}
-          <div className="flex-1 flex flex-col gap-5">
+          <motion.div
+            className="flex-1 flex flex-col gap-5"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportReveal}
+          >
             {experienceData.map((exp, i) => (
-              <SignInCardBeamEffect
-                key={i}
-                enableTilt={false}
-                className="bg-white border border-[#D8E1EC] rounded-[14px] shadow-[0_2px_14px_rgba(15,42,74,0.055)] overflow-hidden"
-              >
-                <div className="p-5 md:p-6 relative z-10 flex flex-col">
+              <motion.div key={i} variants={staggerItem}>
+                <SignInCardBeamEffect
+                  enableTilt={false}
+                  className="motion-card bg-white border border-[#D8E1EC] rounded-[14px] shadow-[0_2px_14px_rgba(15,42,74,0.055)] overflow-hidden"
+                >
+                  <div className="p-5 md:p-6 relative z-10 flex flex-col">
                   
                   {/* Top Row: Title/Company & Date */}
                   <div className="flex flex-col md:flex-row md:items-start justify-between gap-3 mb-3">
@@ -89,13 +126,14 @@ export function Experience() {
                     ))}
                   </div>
                   
-                </div>
-              </SignInCardBeamEffect>
+                  </div>
+                </SignInCardBeamEffect>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -91,7 +91,7 @@ export function Navbar({ onOpenCommand }: NavbarProps) {
               <a
                 href={cvUrl}
                 download="Phat_Nguyen_CV.pdf"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0F2A4A] text-white text-[0.8rem] font-bold transition-all hover:bg-[#2563EB] hover:shadow-lg hover:shadow-blue-500/20"
+                className="motion-button inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0F2A4A] text-white text-[0.8rem] font-bold transition-all hover:bg-[#2563EB] hover:shadow-lg hover:shadow-blue-500/20"
               >
                 <Download size={14} />
                 <span>Download CV</span>
@@ -100,7 +100,7 @@ export function Navbar({ onOpenCommand }: NavbarProps) {
               {/* Command Menu */}
               <button
                 onClick={onOpenCommand}
-                className="navbar-command-button flex items-center justify-center w-10 h-10 rounded-full border border-[#D8E1EC] bg-white text-[#0B1220] transition-all hover:border-[#2563EB] hover:text-[#2563EB]"
+                className="navbar-command-button motion-button flex items-center justify-center w-10 h-10 rounded-full border border-[#D8E1EC] bg-white text-[#0B1220] transition-all hover:border-[#2563EB] hover:text-[#2563EB]"
                 aria-label="Open command menu"
               >
                 <Menu size={18} />
@@ -110,7 +110,7 @@ export function Navbar({ onOpenCommand }: NavbarProps) {
 
           {/* Mobile hamburger */}
           <button
-            className="navbar-command-button md:hidden flex items-center justify-center w-10 h-10 rounded-full border border-[#D8E1EC] bg-white text-[#0B1220]"
+            className="navbar-command-button motion-button md:hidden flex items-center justify-center w-10 h-10 rounded-full border border-[#D8E1EC] bg-white text-[#0B1220]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -146,7 +146,7 @@ export function Navbar({ onOpenCommand }: NavbarProps) {
             <a
               href={cvUrl}
               download="Phat_Nguyen_CV.pdf"
-              className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#0F2A4A] text-white font-bold"
+              className="motion-button flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#0F2A4A] text-white font-bold"
               onClick={() => setMobileMenuOpen(false)}
             >
               <Download size={18} /> Download CV

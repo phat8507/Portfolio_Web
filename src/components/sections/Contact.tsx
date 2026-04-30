@@ -1,7 +1,18 @@
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { profileData } from "../../data/profile";
+import {
+  createBlurFadeUpVariants,
+  createStaggerContainerVariants,
+  createStaggerItemVariants,
+  viewportReveal,
+} from "../motion/variants";
 
 export function Contact() {
+  const shouldReduceMotion = Boolean(useReducedMotion());
+  const reveal = createBlurFadeUpVariants(shouldReduceMotion);
+  const staggerContainer = createStaggerContainerVariants(shouldReduceMotion, 0.08);
+  const staggerItem = createStaggerItemVariants(shouldReduceMotion);
   const contactCards = [
     {
       label: "Email",
@@ -36,12 +47,25 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="contact-section border-t relative overflow-hidden">
+    <motion.section
+      id="contact"
+      className="contact-section border-t relative overflow-hidden"
+      variants={reveal}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportReveal}
+    >
       <div className="contact-section-glow" aria-hidden="true" />
 
       <div className="section-container contact-container relative z-10">
-        <div className="contact-layout">
-          <div className="contact-copy">
+        <motion.div
+          className="contact-layout"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportReveal}
+        >
+          <motion.div className="contact-copy" variants={staggerItem}>
             <h2 className="contact-title">
               Let's <span>work</span>
               <br />
@@ -52,45 +76,48 @@ export function Contact() {
             </p>
             <a
               href={`mailto:${profileData.contact.email}`}
-              className="contact-cta shiny-cta-same-color inline-flex items-center text-white font-bold rounded-full transition-all hover:opacity-85 hover:-translate-y-0.5"
+              className="contact-cta motion-button shiny-cta-same-color inline-flex items-center text-white font-bold rounded-full transition-all hover:opacity-85 hover:-translate-y-0.5"
             >
               <span>
                 <Mail size={14} />
                 Send me an email
               </span>
             </a>
-          </div>
+          </motion.div>
 
-          <div className="contact-card-list">
+          <motion.div className="contact-card-list" variants={staggerContainer}>
             {contactCards.map((card) => (
-              <a
-                key={card.label}
-                href={card.href}
-                target={card.external ? "_blank" : undefined}
-                rel={card.external ? "noopener noreferrer" : undefined}
-                className="contact-card contact-gradient-card group"
-              >
-                <div className="contact-card-icon">{card.icon}</div>
-                <div className="contact-card-content">
-                  <div className="contact-card-label">{card.label}</div>
-                  <div className="contact-card-value">{card.value}</div>
-                </div>
-                <ArrowUpRight size={15} className="contact-card-arrow" />
-              </a>
+              <motion.div key={card.label} variants={staggerItem}>
+                <a
+                  href={card.href}
+                  target={card.external ? "_blank" : undefined}
+                  rel={card.external ? "noopener noreferrer" : undefined}
+                  className="contact-card contact-gradient-card group"
+                >
+                  <div className="contact-card-icon">{card.icon}</div>
+                  <div className="contact-card-content">
+                    <div className="contact-card-label">{card.label}</div>
+                    <div className="contact-card-value">{card.value}</div>
+                  </div>
+                  <ArrowUpRight size={15} className="contact-card-arrow" />
+                </a>
+              </motion.div>
             ))}
 
-            <div className="contact-card contact-gradient-card contact-card--static">
-              <div className="contact-card-icon">
-                <MapPin size={16} />
+            <motion.div variants={staggerItem}>
+              <div className="contact-card contact-gradient-card contact-card--static">
+                <div className="contact-card-icon">
+                  <MapPin size={16} />
+                </div>
+                <div className="contact-card-content">
+                  <div className="contact-card-label">Location</div>
+                  <div className="contact-card-value">{profileData.location}</div>
+                </div>
               </div>
-              <div className="contact-card-content">
-                <div className="contact-card-label">Location</div>
-                <div className="contact-card-value">{profileData.location}</div>
-              </div>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

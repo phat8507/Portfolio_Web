@@ -1,7 +1,14 @@
 import { CalendarDays, MessageCircle, Search, LayoutGrid, BookOpen } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { skillsData, languagesData } from "../../data/skills";
 import { SignInCardBeamEffect } from "../effects/SignInCardBeamEffect";
 import { TiltCard } from "../effects/TiltCard";
+import {
+  createBlurFadeUpVariants,
+  createStaggerContainerVariants,
+  createStaggerItemVariants,
+  viewportReveal,
+} from "../motion/variants";
 
 const iconMap = {
   "Project & Operations": <CalendarDays size={22} className="text-[#2563EB]" />,
@@ -18,8 +25,20 @@ const descMap = {
 };
 
 export function Skills() {
+  const shouldReduceMotion = Boolean(useReducedMotion());
+  const reveal = createBlurFadeUpVariants(shouldReduceMotion);
+  const staggerContainer = createStaggerContainerVariants(shouldReduceMotion, 0.08);
+  const staggerItem = createStaggerItemVariants(shouldReduceMotion);
+
   return (
-    <section id="skills" className="py-[clamp(3.5rem,8vh,5.5rem)] border-t border-[#D8E1EC]">
+    <motion.section
+      id="skills"
+      className="py-[clamp(3.5rem,8vh,5.5rem)] border-t border-[#D8E1EC]"
+      variants={reveal}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportReveal}
+    >
       <div className="section-container">
         <div className="mb-12">
           <div className="flex flex-col gap-[6px] mb-4">
@@ -33,23 +52,29 @@ export function Skills() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportReveal}
+        >
           {skillsData.map((card) => (
-            <TiltCard
-              key={card.category}
-              tiltLimit={6}
-              scale={1.015}
-              perspective={1200}
-              effect="evade"
-              spotlight={true}
-              className="rounded-[16px]"
-            >
-              <SignInCardBeamEffect
-                enableTilt={false}
-                className="skill-card bg-white border border-[#D8E1EC] rounded-[16px] shadow-[0_2px_16px_rgba(15,42,74,0.06)] overflow-hidden"
-                data-cursor="hover"
+            <motion.div key={card.category} variants={staggerItem}>
+              <TiltCard
+                tiltLimit={6}
+                scale={1.015}
+                perspective={1200}
+                effect="evade"
+                spotlight={true}
+                className="rounded-[16px]"
               >
-                <div className="p-7 flex flex-col h-full relative z-10">
+                <SignInCardBeamEffect
+                  enableTilt={false}
+                  className="skill-card motion-card bg-white border border-[#D8E1EC] rounded-[16px] shadow-[0_2px_16px_rgba(15,42,74,0.06)] overflow-hidden"
+                  data-cursor="hover"
+                >
+                  <div className="p-7 flex flex-col h-full relative z-10">
                   <div className="flex items-center gap-4 mb-3">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[rgba(37,99,235,0.07)] flex items-center justify-center">
                       {iconMap[card.category as keyof typeof iconMap]}
@@ -74,18 +99,25 @@ export function Skills() {
                       </span>
                     ))}
                   </div>
-                </div>
-              </SignInCardBeamEffect>
-            </TiltCard>
+                  </div>
+                </SignInCardBeamEffect>
+              </TiltCard>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <SignInCardBeamEffect
-          enableTilt={false}
-          className="skill-card bg-white border border-[#D8E1EC] rounded-[16px] shadow-[0_2px_16px_rgba(15,42,74,0.06)] overflow-hidden"
-          data-cursor="hover"
+        <motion.div
+          variants={staggerItem}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportReveal}
         >
-          <div className="flex flex-col sm:flex-row sm:items-center gap-5 px-7 py-5 relative z-10">
+          <SignInCardBeamEffect
+            enableTilt={false}
+            className="skill-card motion-card bg-white border border-[#D8E1EC] rounded-[16px] shadow-[0_2px_16px_rgba(15,42,74,0.06)] overflow-hidden"
+            data-cursor="hover"
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center gap-5 px-7 py-5 relative z-10">
             <div className="flex items-center gap-3 sm:pr-6 sm:border-r sm:border-[#D8E1EC] shrink-0">
               <div className="w-10 h-10 rounded-full bg-[rgba(37,99,235,0.07)] flex items-center justify-center">
                 <BookOpen size={18} className="text-[#2563EB]" />
@@ -105,9 +137,10 @@ export function Skills() {
                 </span>
               ))}
             </div>
-          </div>
-        </SignInCardBeamEffect>
+            </div>
+          </SignInCardBeamEffect>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

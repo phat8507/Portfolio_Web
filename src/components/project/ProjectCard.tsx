@@ -29,7 +29,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
       enableTilt={true}
       className={cn(
         "project-card cursor-pointer bg-white border border-[#D8E1EC] rounded-[16px] overflow-hidden shadow-[0_4px_20px_rgba(15,42,74,0.04)]",
-        "hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] hover:border-[#2563EB] transition-all duration-300"
+        "motion-card hover:shadow-[0_12px_34px_rgba(15,42,74,0.10)] hover:border-[#2563EB] hover:-translate-y-1 transition-all duration-300"
       )}
       data-cursor="hover"
       onClick={onClick}
@@ -90,7 +90,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#D8E1EC] text-[0.75rem] font-semibold text-[#0B1220] transition-all hover:border-[#2563EB] hover:text-[#2563EB] hover:shadow-sm"
+                className="motion-button inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#D8E1EC] text-[0.75rem] font-semibold text-[#0B1220] transition-all hover:border-[#2563EB] hover:text-[#2563EB] hover:shadow-sm"
               >
                 {link.label}
                 <ExternalLink size={12} />

@@ -10,13 +10,21 @@ import {
   BookOpen,
   ClipboardList
 } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import type { MouseEvent } from "react";
 import { profileData } from "../../data/profile";
 import { cn } from "../../lib/utils";
+import {
+  createStaggerContainerVariants,
+  createStaggerItemVariants,
+} from "../motion/variants";
 
 export function Hero() {
   const profileImageUrl = `${import.meta.env.BASE_URL}uploads/photo-1777006151341.jpg`;
   const cvUrl = `${import.meta.env.BASE_URL}Phat_Nguyen_CV.pdf`;
+  const shouldReduceMotion = Boolean(useReducedMotion());
+  const staggerContainer = createStaggerContainerVariants(shouldReduceMotion, 0.11);
+  const staggerItem = createStaggerItemVariants(shouldReduceMotion);
 
   const scrollToProjects = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
@@ -52,15 +60,20 @@ export function Hero() {
     >
       <div className="w-full max-w-[1240px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.3fr)_minmax(340px,384px)] gap-12 lg:gap-12 xl:gap-14 items-center">
-          <div className="hero-copy flex flex-col items-start text-left">
-            <div className="flex items-center gap-2 mb-4">
+          <motion.div
+            className="hero-copy flex flex-col items-start text-left"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div className="flex items-center gap-2 mb-4" variants={staggerItem}>
               <div className="w-2 h-2 rounded-full bg-[#2563EB] shadow-[0_0_8px_rgba(37,99,235,0.4)] animate-pulse" />
               <span className="text-[0.68rem] font-bold tracking-[0.18em] uppercase text-[#5B6B82]">
                 {profileData.status} · {profileData.location}
               </span>
-            </div>
+            </motion.div>
 
-            <div className="mb-4">
+            <motion.div className="mb-4" variants={staggerItem}>
               <h1 className="font-display text-[clamp(2.8rem,5.5vw,4.2rem)] font-bold leading-[1.05] tracking-tight text-[#0B1220] max-w-[680px]">
                 {profileData.name}
               </h1>
@@ -70,28 +83,28 @@ export function Hero() {
               <p className="mt-3 text-[0.8rem] sm:text-[0.85rem] font-bold uppercase tracking-[0.16em] text-[#5B6B82]">
                 {profileData.headline}
               </p>
-            </div>
+            </motion.div>
 
-            <div className="w-16 h-[2px] bg-[#2563EB] mb-6 opacity-40 rounded-full" />
+            <motion.div className="w-16 h-[2px] bg-[#2563EB] mb-6 opacity-40 rounded-full" variants={staggerItem} />
 
-            <p className="text-[clamp(1rem,1.6vw,1.15rem)] font-medium max-w-[600px] mb-8 leading-[1.65] text-[#5B6B82]">
+            <motion.p className="text-[clamp(1rem,1.6vw,1.15rem)] font-medium max-w-[600px] mb-8 leading-[1.65] text-[#5B6B82]" variants={staggerItem}>
               {profileData.heroDescription}
-            </p>
+            </motion.p>
 
-            <div className="flex flex-wrap gap-2 mb-10 max-w-[620px]">
+            <motion.div className="flex flex-wrap gap-2 mb-10 max-w-[620px]" variants={staggerItem}>
               {profileData.targets.map((tag) => (
                 <span key={tag} className="tag flex items-center gap-2 py-2 px-4 bg-white/60 backdrop-blur-sm border-[#D8E1EC] text-[0.75rem] font-bold text-[#5B6B82] rounded-full hover:border-[#2563EB] hover:text-[#2563EB] transition-all cursor-default shadow-sm">
                   <span className="text-[#2563EB]/80">{getTagIcon(tag)}</span>
                   {tag}
                 </span>
               ))}
-            </div>
+            </motion.div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <motion.div className="flex flex-wrap items-center gap-3" variants={staggerItem}>
               <a
                 href="#projects"
                 onClick={scrollToProjects}
-                className="hero-primary-cta shiny-cta-same-color relative group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-[0.88rem] font-bold text-white transition-all overflow-hidden"
+                className="hero-primary-cta motion-button shiny-cta-same-color relative group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-[0.88rem] font-bold text-white transition-all overflow-hidden"
                 style={{ boxShadow: "0 12px 30px rgba(15,42,74,0.12)" }}
               >
                 <ArrowRight size={16} className="relative z-10 transition-transform group-hover:translate-x-1" />
@@ -101,7 +114,7 @@ export function Hero() {
               <a
                 href={cvUrl}
                 download="Phat_Nguyen_CV.pdf"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white border border-[#D8E1EC] text-[0.88rem] font-bold text-[#0B1220] transition-all hover:border-[#2563EB] hover:text-[#2563EB] hover:-translate-y-0.5 shadow-sm active:translate-y-0"
+                className="motion-button inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white border border-[#D8E1EC] text-[0.88rem] font-bold text-[#0B1220] transition-all hover:border-[#2563EB] hover:text-[#2563EB] hover:-translate-y-0.5 shadow-sm active:translate-y-0"
               >
                 <Download size={16} />
                 Download CV
@@ -109,15 +122,20 @@ export function Hero() {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white border border-[#D8E1EC] text-[0.88rem] font-bold text-[#0B1220] transition-all hover:border-[#2563EB] hover:text-[#2563EB] hover:-translate-y-0.5 shadow-sm active:translate-y-0"
+                className="motion-button inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white border border-[#D8E1EC] text-[0.88rem] font-bold text-[#0B1220] transition-all hover:border-[#2563EB] hover:text-[#2563EB] hover:-translate-y-0.5 shadow-sm active:translate-y-0"
               >
                 <Mail size={16} />
                 Contact Me
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="hero-visual flex w-full max-w-[384px] flex-col gap-3 justify-self-center lg:justify-self-end">
+          <motion.div
+            className="hero-visual flex w-full max-w-[384px] flex-col gap-3 justify-self-center lg:justify-self-end"
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 18, filter: "blur(5px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.75, delay: shouldReduceMotion ? 0 : 0.18, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="profile-star-inside relative w-full rounded-[26px] overflow-hidden aspect-[4/4.45] shadow-xl transition-all duration-500 group hover:shadow-2xl">
               <img
                 src={profileImageUrl}
@@ -169,7 +187,7 @@ export function Hero() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,11 +1,18 @@
 import { useMemo, useRef, useState } from "react";
 import { Search } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ProjectData } from "../../data/projects";
 import { projectsData } from "../../data/projects";
 import { ProjectCard } from "../project/ProjectCard";
 import { ProjectModal } from "../project/ProjectModal";
 import { NumberedPagination } from "../ui/NumberedPagination";
 import { cn } from "../../lib/utils";
+import {
+  createBlurFadeUpVariants,
+  createStaggerContainerVariants,
+  createStaggerItemVariants,
+  viewportReveal,
+} from "../motion/variants";
 
 const PROJECTS_PER_PAGE = 6;
 
@@ -15,6 +22,10 @@ export function Projects() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = Boolean(useReducedMotion());
+  const reveal = createBlurFadeUpVariants(shouldReduceMotion);
+  const staggerContainer = createStaggerContainerVariants(shouldReduceMotion, 0.08);
+  const staggerItem = createStaggerItemVariants(shouldReduceMotion);
 
   const filters = [
     { id: "all", label: "All" },
@@ -50,7 +61,15 @@ export function Projects() {
   };
 
   return (
-    <section ref={sectionRef} id="projects" className="py-[clamp(3.5rem,8vh,5.5rem)] border-t border-[#D8E1EC] relative z-10">
+    <motion.section
+      ref={sectionRef}
+      id="projects"
+      className="py-[clamp(3.5rem,8vh,5.5rem)] border-t border-[#D8E1EC] relative z-10"
+      variants={reveal}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportReveal}
+    >
       <div className="section-container">
         
         {/* ── Header ─────────────────────────────── */}
@@ -108,13 +127,20 @@ export function Projects() {
         </div>
 
         {/* ── Grid ───────────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportReveal}
+        >
           {paginatedProjects.map((project) => (
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              onClick={() => setSelectedProject(project)} 
-            />
+            <motion.div key={project.id} variants={staggerItem}>
+              <ProjectCard
+                project={project}
+                onClick={() => setSelectedProject(project)}
+              />
+            </motion.div>
           ))}
           {filteredProjects.length === 0 && (
             <div className="col-span-full py-16 text-center text-[#5B6B82] bg-white rounded-[16px] border border-[#D8E1EC]">
@@ -122,7 +148,7 @@ export function Projects() {
               <div className="text-[0.9rem]">Try adjusting your search or filters.</div>
             </div>
           )}
-        </div>
+        </motion.div>
 
         {totalPages > 1 && (
           <div className="mt-10">
@@ -139,6 +165,6 @@ export function Projects() {
         project={selectedProject} 
         onClose={() => setSelectedProject(null)} 
       />
-    </section>
+    </motion.section>
   );
 }
