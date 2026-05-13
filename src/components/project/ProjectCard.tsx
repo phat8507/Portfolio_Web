@@ -1,4 +1,4 @@
-import { ExternalLink, Medal, Folder, LayoutGrid, Users } from "lucide-react";
+import { ArrowRight, ExternalLink, Medal, Folder, LayoutGrid, Users } from "lucide-react";
 import type { ProjectData } from "../../data/projects";
 import { cn } from "../../lib/utils";
 import { SignInCardBeamEffect } from "../effects/SignInCardBeamEffect";
@@ -82,25 +82,35 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
         </div>
 
         {/* 7. Bottom Links & Action */}
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-dashed border-[#D8E1EC]">
-          <div className="flex flex-wrap gap-2" onClick={(e) => e.stopPropagation()}>
-            {project.links && project.links.map((link: { label: string; url: string }) => (
-              <a
-                key={link.url}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="motion-button inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#D8E1EC] text-[0.75rem] font-semibold text-[#0B1220] transition-all hover:border-[#2563EB] hover:text-[#2563EB] hover:shadow-sm"
-              >
-                {link.label}
-                <ExternalLink size={12} />
-              </a>
-            ))}
-          </div>
+        <div className="project-actions mt-auto pt-4 border-t border-dashed border-[#D8E1EC]">
+          {project.links && project.links.length > 0 && (
+            <div className="project-link-list" onClick={(e) => e.stopPropagation()}>
+              {project.links.map((link: { label: string; url: string }) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link-row motion-button"
+                >
+                  <span className="project-link-label">{link.label}</span>
+                  <ExternalLink size={12} className="project-link-icon" />
+                </a>
+              ))}
+            </div>
+          )}
 
-          <div className="text-[0.8rem] font-bold text-[#2563EB] flex items-center gap-1 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-            Details <span>-&gt;</span>
-          </div>
+          <button
+            type="button"
+            className="details-button motion-button"
+            onClick={(event) => {
+              event.stopPropagation();
+              onClick();
+            }}
+          >
+            <span>Details</span>
+            <ArrowRight size={13} />
+          </button>
         </div>
 
       </div>
