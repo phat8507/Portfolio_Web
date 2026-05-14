@@ -24,52 +24,53 @@ export interface ProjectData {
 
 export const projectsData: ProjectData[] = [
   {
-    id: "financial-market-failures",
+    id: "scrum-managed-macroeconomics",
     category: "research",
     type: "Academic Research",
     medal: null,
-    title: "Financial Market Failures & Economic Crises",
-    role: "Team Lead - Scrum Master - 8-member research team",
-    highlights: ["8 members", "Scrum + MBO", "3 offline sprints", "9/10 score"],
-    overview: "Led an 8-member academic research team on financial market failures and economic crises, managing the project from topic scoping to final presentation. Applied Scrum to divide work into sprint-based workflows, track ownership, monitor progress, and coordinate review sessions. Used MBO to translate the team goal into clear objectives, key results, owners, deadlines, and measurable outputs.",
+    title: "Scrum-Managed Group Research Project - Macroeconomics",
+    role: "Team Lead - Scrum Master - Group 1A - Ho Chi Minh University of Banking",
+    highlights: ["8 members", "3 offline sprints", "Google Sheets dashboard", "9/10 score"],
+    overview: "Applied Agile/Scrum workflows to coordinate an 8-member macroeconomics research team from planning to final delivery. Managed research backlog, role-based task ownership, milestone tracking, and deliverable deadlines while using Management by Objectives (MBO) to connect individual responsibilities with project goals.",
     responsibilities: [
-      "Coordinated 8 members across kickoff, role assignment, sprint planning, research execution, rehearsal, and final submission.",
-      "Built sprint backlogs, divided work by sprint, tracked task ownership, and hosted sprint reviews/check-ins.",
-      "Applied MBO by converting the project goal into clear objectives, key results, deadlines, and output standards.",
-      "Structured the project into key workstreams: framework research, Vietnam-focused case building, rebuttal preparation, and final storytelling.",
-      "Coordinated research scope across market failure mechanisms, international supporting cases, and Vietnam-focused financial turbulence.",
-      "Monitored progress, workload, dependencies, deadlines, and output quality across report writing, slide preparation, speaking script, debate document, and rehearsal."
+      "Coordinated an 8-member team across 3 offline sprint sessions, including planning, check-ins, review logistics, and final delivery.",
+      "Managed the research backlog, role-based task ownership, milestone tracking, and deliverable deadlines.",
+      "Built an Excel and Google Sheets project dashboard for tracking responsibilities, progress status, and team alignment.",
+      "Applied Management by Objectives (MBO) to connect individual responsibilities with project objectives.",
+      "Coordinated final deliverables, including a data analysis workbook, structured debate document, and project microsite.",
+      "Integrated 2020-2025 evidence and Vietnam-focused case examples into the research storyline."
     ],
-    outcomes: "Achieved a 9/10 final group score. Delivered a complete research presentation, data workbook, Q&A preparation, and rebuttal materials. Improved team accountability by assigning owners, deadlines, and expected outputs for each workstream.",
-    tags: ["Scrum", "MBO", "Sprint Planning", "Team Leadership", "Progress Tracking", "Task Delegation", "Research Management", "Presentation Structuring"],
+    outcomes: "Received a faculty evaluation score of 9/10 based on research quality, presentation delivery, and teamwork. Delivered a data analysis workbook, structured debate document, project dashboard, and project microsite while keeping team responsibilities and deadlines visible.",
+    tags: ["Agile/Scrum", "Sprint Planning", "MBO", "Backlog Tracking", "Milestone Tracking", "Google Sheets", "Research Coordination", "Deliverable Management"],
     links: [
       { label: "Scrum/MBO Management Sheet", url: "https://docs.google.com/spreadsheets/d/1J7qV3jRL2DzsedPfVXcWpT1usXZqI-f6/edit?usp=sharing&ouid=115062449513822083905&rtpof=true&sd=true" },
       { label: "Interactive Project Website", url: "https://phat8507.github.io/MacroEco_N4_MarketFailure/" }
     ],
-    cardTags: ["Scrum", "MBO", "Sprint Planning", "Team Leadership"],
-    cardDesc: "Led an 8-member research team using Scrum and MBO: sprint planning, backlog tracking, task ownership, progress reviews, and final delivery control. Achieved 9/10."
+    cardTags: ["Agile/Scrum", "MBO", "Google Sheets", "Milestones"],
+    cardDesc: "Coordinated an 8-member macroeconomics research team using Agile/Scrum, 3 offline sprint sessions, MBO, and a Google Sheets dashboard. Earned a 9/10 faculty score."
   },
   {
     id: "volleyball-club",
     category: "leadership",
-    type: "Operations & Media",
+    type: "Club Operations",
     medal: "Bronze Medal",
-    title: "Volleyball Club - Duong Van Thi High School",
-    role: "Head of Media & Technical Division - Nov 2023 - Jun 2025",
-    highlights: ["50+ members", "15 new members/cycle", "85% retention", "15+ schools"],
-    overview: "Oversaw operations and media coordination for a 50+ member student sports organization, covering weekly scheduling, facility coordination, recruitment, onboarding, media output, and inter-school tournament logistics across a two-year tenure.",
+    title: "Club Operations Lead - Volleyball Club",
+    role: "Head of Media & Technical Division - Duong Van Thi High School - Nov 2023 - Jun 2025",
+    highlights: ["50 members", "15 selected from 37", "VND 3,000,000 budget", "85% active participation"],
+    overview: "Oversaw weekly operations for a 50-member student athletics club, covering facility bookings, resource allocation, internal communications, member intake, media coordination, and inter-school tournament logistics.",
     responsibilities: [
-      "Managed weekly scheduling, venue coordination, and resource allocation for club training sessions and events.",
-      "Led annual recruitment and onboarding for 15 new members per cycle, achieving 85% retention through follow-up and mentorship.",
-      "Coordinated media operations, including content planning, social media output, photography, and video direction for club activities and tournaments.",
-      "Worked with school administration to secure budget approval, venue access, and institutional support.",
-      "Planned inter-school tournaments with 15+ schools, managing timelines, logistics, stakeholder communication, and event delivery.",
-      "Prepared post-event performance reports to support planning decisions for future tournaments."
+      "Coordinated facility bookings, resource allocation, weekly operations, and internal communications for club activities.",
+      "Managed budget approval through coach and school leadership, securing VND 3,000,000 in approved funding.",
+      "Led a structured member intake project for 15 selected members from 37 submissions.",
+      "Managed timeline planning, task coordination, review logistics, preparation materials, 4 practice sessions, and post-intake progress tracking.",
+      "Organized an inter-school tournament involving 15 teams from 15 institutions.",
+      "Managed a one-month preparation timeline covering venue approval, match scheduling, logistics, and communication with head coaches.",
+      "Led the club's technical team as team captain during school-level competitions."
     ],
-    outcomes: "Contributed to a Bronze Medal at the HCMC Student Sports Championship 2025. Supported operations for a 50+ member club and coordinated tournament activities involving 15+ schools. Built practical experience in scheduling, logistics, stakeholder coordination, onboarding, reporting, and media operations.",
-    tags: ["Operations", "Recruitment Coordination", "Onboarding", "Scheduling", "Stakeholder Communication", "Tournament Logistics", "Reporting", "Media Operations"],
-    cardTags: ["Operations", "Recruitment", "Scheduling", "Media", "Logistics"],
-    cardDesc: "Oversaw operations for a 50+ member club: scheduling, venue coordination, recruitment, onboarding, media operations, and tournament logistics involving 15+ schools. Achieved 85% retention and contributed to Bronze Medal performance."
+    outcomes: "Maintained 85% active participation after intake, coordinated tournament logistics across 15 teams from 15 institutions, secured VND 3,000,000 in approved funding, and contributed to the team winning a Bronze Medal at the HCMC Student Sports Championship.",
+    tags: ["Operations Support", "Timeline Planning", "Budget Approval", "Resource Allocation", "Member Intake", "Stakeholder Communication", "Tournament Logistics", "Progress Tracking"],
+    cardTags: ["Operations", "Budget", "Logistics", "Member Intake"],
+    cardDesc: "Oversaw operations for a 50-member athletics club, secured VND 3,000,000 in approved funding, organized tournament logistics across 15 institutions, and maintained 85% active participation."
   },
   {
     id: "youth-for-chance",

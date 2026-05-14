@@ -1,61 +1,42 @@
 export const skillsData = [
   {
-    category: "Project & Operations",
+    category: "Project Coordination",
     skills: [
-      "Scrum Fundamentals Certified (SFC)",
-      "Sprint Planning",
-      "Task Tracking",
-      "Timeline Coordination",
-      "Documentation",
-      "Reporting",
-      "Event Logistics"
-    ]
-  },
-  {
-    category: "People & HR Support",
-    skills: [
-      "Onboarding",
-      "Recruitment Coordination",
-      "Retention Follow-up",
+      "Project Coordination",
+      "Agile/Scrum",
+      "Deliverable & Milestone Tracking",
+      "Cross-Functional Coordination",
       "Stakeholder Communication",
-      "Client Management"
+      "Timeline Planning"
     ]
   },
   {
-    category: "Research & Communication",
+    category: "Operations & Documentation",
     skills: [
-      "Desk Research",
-      "Case Study Analysis",
-      "Report Writing",
-      "Public Speaking",
-      "Q&A Preparation",
-      "Debate Materials"
+      "Process Documentation",
+      "Operations Support",
+      "Status Reporting",
+      "Resource Allocation",
+      "Event Logistics",
+      "Budget Approval Coordination"
     ]
   },
   {
     category: "Tools",
-    skills: ["Microsoft Office", "Google Workspace", "Canva", "CapCut", "GitHub Pages"]
-  }
-];
-
-export const languagesData = [
-  {
-    flag: "VN",
-    name: "Vietnamese",
-    level: "Native",
-    badge: "Native"
+    skills: [
+      "Microsoft Excel",
+      "Microsoft Word",
+      "Microsoft PowerPoint",
+      "Google Sheets",
+      "Canva",
+      "CapCut"
+    ]
   },
   {
-    flag: "EN",
-    name: "English",
-    level: "IELTS 7.5 / Professional Working",
-    badge: "IELTS 7.5",
-    gold: true
-  },
-  {
-    flag: "ZH",
-    name: "Mandarin",
-    level: "Learning / HSK 3-4 direction",
-    badge: "Learning"
+    category: "Languages",
+    skills: [
+      "English - IELTS 7.5, Professional Working Proficiency",
+      "Vietnamese - Native"
+    ]
   }
 ];

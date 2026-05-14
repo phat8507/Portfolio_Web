@@ -27,7 +27,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
     { title: 'Open Scrum/MBO Sheet', sub: 'Management sheet for the macroeconomics project', key: 'sheet', action: () => window.open('https://docs.google.com/spreadsheets/d/1J7qV3jRL2DzsedPfVXcWpT1usXZqI-f6/edit?usp=sharing&ouid=115062449513822083905&rtpof=true&sd=true', '_blank') },
     { title: 'Open Project Website', sub: 'MacroEco_N4_MarketFailure on GitHub Pages', key: 'site', action: () => window.open('https://phat8507.github.io/MacroEco_N4_MarketFailure/', '_blank') },
     { title: 'Go to Contact', sub: 'Email, LinkedIn, GitHub and location', key: '#contact', action: () => { window.location.hash = 'contact'; } },
-    { title: 'Go to Skills', sub: 'Business, research, tools and languages', key: '#skills', action: () => { window.location.hash = 'skills'; } }
+    { title: 'Go to Skills', sub: 'Project coordination, operations, tools and languages', key: '#skills', action: () => { window.location.hash = 'skills'; } }
   ];
 
   useEffect(() => {

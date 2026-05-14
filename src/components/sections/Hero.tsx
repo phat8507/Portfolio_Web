@@ -4,8 +4,6 @@ import {
   Mail,
   Users,
   Calendar,
-  UserCheck,
-  Search,
   Globe,
   BookOpen,
   ClipboardList
@@ -35,9 +33,9 @@ export function Hero() {
   const getTagIcon = (tag: string) => {
     switch (tag) {
       case "Project Coordination": return <Users size={14} />;
+      case "Project Management": return <ClipboardList size={14} />;
       case "Operations": return <ClipboardList size={14} />;
-      case "HR & People Operations": return <UserCheck size={14} />;
-      case "Business Research": return <Search size={14} />;
+      case "Agile/Scrum": return <BookOpen size={14} />;
       case "Event Logistics": return <Calendar size={14} />;
       default: return null;
     }

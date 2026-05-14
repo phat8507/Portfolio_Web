@@ -1,6 +1,6 @@
-import { CalendarDays, MessageCircle, Search, LayoutGrid, BookOpen } from "lucide-react";
+import { CalendarDays, ClipboardList, Languages, LayoutGrid } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import { skillsData, languagesData } from "../../data/skills";
+import { skillsData } from "../../data/skills";
 import { SignInCardBeamEffect } from "../effects/SignInCardBeamEffect";
 import { TiltCard } from "../effects/TiltCard";
 import {
@@ -11,17 +11,17 @@ import {
 } from "../motion/variants";
 
 const iconMap = {
-  "Project & Operations": <CalendarDays size={22} className="text-[#2563EB]" />,
-  "People & HR Support": <MessageCircle size={22} className="text-[#2563EB]" />,
-  "Research & Communication": <Search size={22} className="text-[#2563EB]" />,
-  Tools: <LayoutGrid size={22} className="text-[#2563EB]" />
+  "Project Coordination": <CalendarDays size={22} className="text-[#2563EB]" />,
+  "Operations & Documentation": <ClipboardList size={22} className="text-[#2563EB]" />,
+  Tools: <LayoutGrid size={22} className="text-[#2563EB]" />,
+  Languages: <Languages size={22} className="text-[#2563EB]" />
 };
 
 const descMap = {
-  "Project & Operations": "Planning tasks, tracking progress, and keeping delivery organized.",
-  "People & HR Support": "Supporting onboarding, recruitment coordination, and stakeholder follow-up.",
-  "Research & Communication": "Turning research into clear reports, presentations, and Q&A materials.",
-  Tools: "Using practical tools to document, communicate, and deliver work."
+  "Project Coordination": "Planning work, aligning stakeholders, and tracking delivery milestones.",
+  "Operations & Documentation": "Keeping workflows documented, reported, and operationally organized.",
+  Tools: "Using practical tools to plan, document, analyze, and present work.",
+  Languages: "Communicating clearly in Vietnamese and English."
 };
 
 export function Skills() {
@@ -106,40 +106,6 @@ export function Skills() {
           ))}
         </motion.div>
 
-        <motion.div
-          variants={staggerItem}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportReveal}
-        >
-          <SignInCardBeamEffect
-            enableTilt={false}
-            className="skill-card motion-card bg-white border border-[#D8E1EC] rounded-[16px] shadow-[0_2px_16px_rgba(15,42,74,0.06)] overflow-hidden"
-            data-cursor="hover"
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center gap-5 px-7 py-5 relative z-10">
-            <div className="flex items-center gap-3 sm:pr-6 sm:border-r sm:border-[#D8E1EC] shrink-0">
-              <div className="w-10 h-10 rounded-full bg-[rgba(37,99,235,0.07)] flex items-center justify-center">
-                <BookOpen size={18} className="text-[#2563EB]" />
-              </div>
-              <span className="text-[0.95rem] font-bold text-[#0B1220] whitespace-nowrap">
-                Languages
-              </span>
-            </div>
-
-            <div className="flex flex-wrap gap-x-6 gap-y-3 sm:pl-2 relative z-10">
-              {languagesData.map((item) => (
-                <span
-                  key={item.name}
-                  className="text-[0.875rem] text-[#5B6B82] font-medium"
-                >
-                  <span className="font-bold text-[#0B1220]">{item.name}</span> - {item.level}
-                </span>
-              ))}
-            </div>
-            </div>
-          </SignInCardBeamEffect>
-        </motion.div>
       </div>
     </motion.section>
   );

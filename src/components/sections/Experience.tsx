@@ -110,9 +110,14 @@ export function Experience() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-[0.8rem] text-[#5B6B82] leading-[1.65] mb-5 max-w-[720px]">
-                    {exp.description}
-                  </p>
+                  <ul className="flex flex-col gap-2 mb-5 max-w-[760px]">
+                    {exp.bullets.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-[0.8rem] text-[#5B6B82] leading-[1.65]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] shrink-0 mt-2" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-[6px] mt-auto">

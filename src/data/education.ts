@@ -1,8 +1,8 @@
 export const educationData = [
   {
-    school: "Banking University of Ho Chi Minh City",
-    degree: "Bachelor of Business Administration",
-    detail: "E-Business Orientation - 2025 - Present",
+    school: "Ho Chi Minh University of Banking",
+    degree: "Bachelor of Business Administration (E-Business)",
+    detail: "2025 - Present - Ho Chi Minh City, Vietnam",
     highlight: false
   },
   {
@@ -12,9 +12,15 @@ export const educationData = [
     highlight: true
   },
   {
+    school: "Microsoft Office Specialist",
+    degree: "Word, PowerPoint",
+    detail: "Certified",
+    highlight: true
+  },
+  {
     school: "Coursera",
     degree: "Google Project Management Certificate",
-    detail: "In Progress",
+    detail: "In Progress - Expected Q3/2026",
     highlight: true
   }
 ];
@@ -29,10 +35,5 @@ export const awardsData = [
     num: "02",
     title: "Bronze Medal - HCMC Student Sports Championship",
     sub: "Volleyball - 2025"
-  },
-  {
-    num: "03",
-    title: "Third Prize - HCMC Physics Gifted Student Exam",
-    sub: "Ho Chi Minh City - 2022"
   }
 ];

@@ -1,4 +1,4 @@
-import { ClipboardCheck, Users, UserCheck, Globe2 } from "lucide-react";
+import { ClipboardCheck, Landmark, Trophy, Users } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { SignInCardBeamEffect } from "../effects/SignInCardBeamEffect";
 import {
@@ -11,23 +11,23 @@ import {
 const impactItems = [
   {
     icon: ClipboardCheck,
-    title: "8-member research team",
-    text: "Led academic project coordination using Scrum and MBO."
+    title: "8-member Scrum project",
+    text: "Coordinated 3 offline sprint sessions and milestone tracking."
   },
   {
     icon: Users,
-    title: "50+ member club",
-    text: "Managed scheduling, logistics, recruitment, and media operations."
+    title: "50-member club",
+    text: "Oversaw weekly operations, resources, and internal communications."
   },
   {
-    icon: UserCheck,
-    title: "85% retention",
-    text: "Supported annual onboarding and follow-up for new club members."
+    icon: Landmark,
+    title: "15 institutions",
+    text: "Managed inter-school tournament logistics and head coach communication."
   },
   {
-    icon: Globe2,
-    title: "IELTS 7.5 + SFC",
-    text: "Strong English communication with certified Scrum foundation."
+    icon: Trophy,
+    title: "9/10 + Bronze Medal",
+    text: "Delivered measurable outcomes across research and athletics leadership."
   }
 ];
 

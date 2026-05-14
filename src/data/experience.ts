@@ -1,23 +1,38 @@
 export const experienceData = [
   {
-    title: "English Second Language Teacher",
-    company: "The Sun English Center, Ho Chi Minh City",
+    title: "English as a Second Language (ESL) Teacher",
+    company: "The Sun English Center, Ho Chi Minh City, Vietnam",
     date: "Oct 2025 - Present",
-    description: "Designed and adapted lesson plans for multiple students based on learner profiles and session objectives. Managed attendance tracking, progress documentation, and post-session feedback to support student progress.",
-    tags: ["Planning", "Progress Documentation", "Feedback", "Classroom Operations", "Communication"]
+    bullets: [
+      "Maintain a structured weekly reporting cycle to 2 stakeholders: the supervising office and foreign English teacher.",
+      "Document session outcomes, student progress status, and follow-up actions across active classes.",
+      "Coordinate lesson delivery across 2 concurrent classes of 10-12 students each, ages 12-17.",
+      "Manage session planning, material preparation, and schedule adherence on a weekly cycle.",
+      "Track learner performance data, identify comprehension gaps, and adjust delivery plans accordingly."
+    ],
+    tags: ["Stakeholder Reporting", "Session Planning", "Progress Tracking", "Classroom Operations", "Communication"]
   },
   {
-    title: "Private Tutor - English",
-    company: "Self-Employed, Ho Chi Minh City",
+    title: "Private English Tutor",
+    company: "Self-Employed, Ho Chi Minh City, Vietnam",
     date: "Jun 2025 - Present",
-    description: "Managed client onboarding, goal alignment, scheduling, and hybrid learning coordination across multiple learners. Defined milestones, built study plans, and adjusted learning plans based on progress and client feedback.",
-    tags: ["Client Onboarding", "Scheduling", "Milestone Tracking", "Client Communication"]
+    bullets: [
+      "Designed and managed a structured study plan for a Grade 7 gifted student ranked 4th among 16 students in the school English team.",
+      "Included goal-setting, weekly lesson planning, milestone-based mini-tests, and progress tracking across 2 offline sessions per week.",
+      "Tracked performance gaps through assessments and adjusted weekly action plans."
+    ],
+    tags: ["Goal Setting", "Weekly Planning", "Milestone Tracking", "Assessment", "Progress Documentation"]
   },
   {
     title: "Teacher Assistant",
-    company: "The Sun English Center, Ho Chi Minh City",
+    company: "The Sun English Center, Ho Chi Minh City, Vietnam",
     date: "Jun 2025 - Oct 2025",
-    description: "Coordinated lesson logistics, prepared materials, and documented student questions, comprehension gaps, and session outcomes for teacher follow-up.",
-    tags: ["Logistics Coordination", "Resource Preparation", "Documentation", "Learner Support"]
+    bullets: [
+      "Supported 3 sessions per week for classes of 10-12 students.",
+      "Coordinated lesson logistics, classroom resources, and learning materials.",
+      "Prepared PowerPoint lesson decks, warm-up games, and activity materials.",
+      "Documented comprehension gaps and student questions for instructor follow-up."
+    ],
+    tags: ["Logistics Coordination", "Resource Preparation", "PowerPoint", "Documentation", "Learner Support"]
   }
 ];
